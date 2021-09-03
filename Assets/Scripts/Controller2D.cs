@@ -17,6 +17,8 @@ public class Controller2D : MonoBehaviour
 
     public LayerMask collisionMask;
 
+    public CollisionInfo collisions;
+
     void Start()
     {
         collider = GetComponent<Collider2D>();
@@ -31,6 +33,8 @@ public class Controller2D : MonoBehaviour
     public void Move(Vector3 velocity)
     {
         UpdateRaycastOrigins();
+        collisions.Reset();
+
 
         if (velocity.x != 0)
         {
@@ -58,13 +62,17 @@ public class Controller2D : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
 
+            Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
+
             if (hit)
             {
                 velocity.x = (hit.distance - skinWidth) * directionX;
                 rayLength = hit.distance;
+
+                collisions.left = directionX == -1;
+                collisions.right = directionX == 1;
             }
 
-            Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
 
         }
     }
@@ -81,13 +89,19 @@ public class Controller2D : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
 
+            Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
+
             if (hit)
             {
                 velocity.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
+
+                collisions.below = directionY == -1;
+                collisions.above = directionY == 1;
             }
 
-            Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
+
+
         }
     }
 
@@ -120,5 +134,17 @@ public class Controller2D : MonoBehaviour
     {
         public Vector2 topLeft, topRightM;
         public Vector2 bottomLeft, bottomRight;
+    }
+
+    public struct CollisionInfo
+    {
+        public bool above, below;
+        public bool left, right;
+
+        public void Reset()
+        {
+            above = below = false;
+            left = right = false;
+        }
     }
 }
