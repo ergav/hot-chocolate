@@ -2,35 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller2D : MonoBehaviour
+public class Controller2D : RaycastController
 {
-    const float skinWidth = 0.015f;
-
-    public int horizontalRaycount = 4;
-    public int verticalRaycount = 4;
-
     public float maxClimbAngle = 70;
     public float maxDesendAngle = 65;
 
-    float horizontalRaySpacing;
-    float verticalRaySpacing;
-
-    Collider2D collider;
-    RaycastOrigins raycastOrigins;
-
-    public LayerMask collisionMask;
-
     public CollisionInfo collisions;
 
-    void Start()
+    public override void Start()
     {
-        collider = GetComponent<Collider2D>();
-        calculateRaySpacing();
-    }
-    void Update()
-    {
-
-
+        base.Start();
     }
 
     public void Move(Vector3 velocity)
@@ -209,37 +190,6 @@ public class Controller2D : MonoBehaviour
                 }
             }
         }
-    }
-
-    void UpdateRaycastOrigins()
-    {
-        Bounds bounds = collider.bounds;
-        bounds.Expand(skinWidth * -2);
-
-        raycastOrigins.bottomLeft = new Vector2 (bounds.min.x, bounds.min.y);
-        raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
-        raycastOrigins.topLeft = new Vector2(bounds.min.x, bounds.max.y);
-        raycastOrigins.topRightM = new Vector2(bounds.max.x, bounds.max.y);
-
-    }
-
-    void calculateRaySpacing()
-    {
-        Bounds bounds = collider.bounds;
-        bounds.Expand(skinWidth * -2);
-
-        horizontalRaycount = Mathf.Clamp(horizontalRaycount, 2, int.MaxValue);
-        verticalRaycount = Mathf.Clamp(verticalRaycount, 2, int.MaxValue);
-
-        horizontalRaySpacing = bounds.size.y / (horizontalRaycount - 1);
-        verticalRaySpacing = bounds.size.x / (verticalRaycount - 1);
-
-    }
-
-    struct RaycastOrigins
-    {
-        public Vector2 topLeft, topRightM;
-        public Vector2 bottomLeft, bottomRight;
     }
 
     public struct CollisionInfo
