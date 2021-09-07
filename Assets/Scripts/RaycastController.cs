@@ -9,13 +9,13 @@ public class RaycastController : MonoBehaviour
     public int horizontalRaycount = 4;
     public int verticalRaycount = 4;
 
-    [HideInInspector]public float horizontalRaySpacing;
-    [HideInInspector]public float verticalRaySpacing;
+    protected float horizontalRaySpacing;
+    protected float verticalRaySpacing;
 
     public LayerMask collisionMask;
 
-    [HideInInspector]public Collider2D collider;
-    public RaycastOrigins raycastOrigins;
+    protected Collider2D collider;
+    protected RaycastOrigins raycastOrigins;
 
     public virtual void Start()
     {
