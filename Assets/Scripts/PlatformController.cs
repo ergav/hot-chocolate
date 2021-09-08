@@ -130,8 +130,12 @@ public class PlatformController : RaycastController
                         float pushY = velocity.y - (hit.distance - skinWidth) * directionY;
 
                         passengerMovements.Add(new PassengerMovement(hit.transform, new Vector3 (pushX, pushY), directionY == 1, true));
-                    }
 
+                        if (directionY == -1 && hit.transform.GetComponent<Controller2D>().collisions.below || directionY == 1 && hit.transform.GetComponent<Controller2D>().collisions.above)
+                        {
+                            Debug.Log("squish");
+                        }
+                    }
 
                 }
             }

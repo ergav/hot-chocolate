@@ -14,6 +14,15 @@ public class Controller2D : RaycastController
         base.Start();
     }
 
+    private void Update()
+    {
+        if (collisions.above)
+        {
+            Debug.Log("collission above");
+        }
+
+    }
+
     public void Move(Vector3 velocity, bool standingOnPlatform = false)
     {
         UpdateRaycastOrigins();
@@ -43,6 +52,11 @@ public class Controller2D : RaycastController
         if (standingOnPlatform)
         {
             collisions.below = true;
+
+            if (collisions.above)
+            {
+                Debug.Log("Squish");
+            }
         }
     }
 
