@@ -427,7 +427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &281200161
 Transform:
   m_ObjectHideFlags: 0
@@ -2968,7 +2968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1136421430}
-  parallaxEffect: 0.7
+  parallaxEffect: 0.625
 --- !u!1 &2009846146
 GameObject:
   m_ObjectHideFlags: 0
