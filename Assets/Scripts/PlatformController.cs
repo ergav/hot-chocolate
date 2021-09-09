@@ -131,9 +131,13 @@ public class PlatformController : RaycastController
 
                         passengerMovements.Add(new PassengerMovement(hit.transform, new Vector3 (pushX, pushY), directionY == 1, true));
 
-                        if (directionY == -1 && hit.transform.GetComponent<Controller2D>().collisions.below || directionY == 1 && hit.transform.GetComponent<Controller2D>().collisions.above)
+                        if (directionY == -1 && hit.transform.GetComponent<Controller2D>().collisions.below)
                         {
-                            Debug.Log("squish");
+                            Debug.Log("down squish");
+                        }
+                        if (directionY == 1 && hit.transform.GetComponent<Controller2D>().collisions.above)
+                        {
+                            Debug.Log("up squish");
                         }
                     }
 
@@ -163,8 +167,17 @@ public class PlatformController : RaycastController
 
                         passengerMovements.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), false, true));
 
-                    }
 
+                    }
+                    if (directionX == -1 && hit.transform.GetComponent<Controller2D>().collisions.left)
+                    {
+                        Debug.Log("left squish");
+                    }
+                    if (directionX == 1 && hit.transform.GetComponent<Controller2D>().collisions.right)
+                    {
+                        Debug.Log("right squish");
+
+                    }
 
                 }
             }
