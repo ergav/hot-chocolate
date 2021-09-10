@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int currentHealth;
-    public int maxHealth;
+    public int currentHealth = 4;
+    public int maxHealth = 4;
 
-    public Image[] healthUI;
+    bool dead;
+
+    public Image HealthUI;
+    public Sprite[] healthSprites;
 
     void Start()
     {
@@ -26,7 +29,10 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            Death();
         }
+
+        HealthUI.sprite = healthSprites[currentHealth];
     }
 
     public void TakeDamage(int amount)
@@ -41,6 +47,10 @@ public class Health : MonoBehaviour
 
     public void Death()
     {
-
+        if (!dead)
+        {
+            Debug.Log("You are dead, not big surprise!");
+            dead = true;
+        }
     }
 }

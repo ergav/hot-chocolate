@@ -16,10 +16,10 @@ public class Controller2D : RaycastController
 
     private void Update()
     {
-        if (collisions.above)
-        {
-            Debug.Log("collission above");
-        }
+        //if (collisions.above)
+        //{
+        //    Debug.Log("collission above");
+        //}
 
     }
 
@@ -55,7 +55,7 @@ public class Controller2D : RaycastController
 
             if (collisions.above)
             {
-                Debug.Log("Squish");
+                Debug.Log("up squish");
             }
         }
     }
