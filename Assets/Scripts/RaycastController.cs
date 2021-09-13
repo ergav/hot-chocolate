@@ -23,6 +23,7 @@ public class RaycastController : MonoBehaviour
         calculateRaySpacing();
     }
 
+
     public void UpdateRaycastOrigins()
     {
         Bounds bounds = collider.bounds;

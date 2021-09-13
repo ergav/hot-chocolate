@@ -9,14 +9,19 @@ public class Health : MonoBehaviour
     public int currentHealth = 4;
     public int maxHealth = 4;
 
+    public float iframeTime = 1;
+
     bool dead;
+    bool iframe;
 
     public Image HealthUI;
     public Sprite[] healthSprites;
 
+    Controller2D controller;
+
     void Start()
     {
-        
+        controller = GetComponent<Controller2D>();
     }
 
     void Update()
@@ -37,7 +42,12 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
+        if (!iframe)
+        {
+            currentHealth -= amount;
+            iframe = true;
+            StartCoroutine(IFrameTimer());
+        }
     }
 
     public void HealDamage(int amount)
@@ -51,6 +61,18 @@ public class Health : MonoBehaviour
         {
             Debug.Log("You are dead, not big surprise!");
             dead = true;
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().StartRespawnCount();
+            Destroy(this.gameObject);
         }
+    }
+
+    IEnumerator IFrameTimer()
+    {
+        yield return new WaitForSeconds(iframeTime);
+        iframe = false;
+        //if (noFlicker)
+        //{
+        //    noFlicker = false;
+        //}
     }
 }
