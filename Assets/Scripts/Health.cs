@@ -17,11 +17,9 @@ public class Health : MonoBehaviour
     public Image HealthUI;
     public Sprite[] healthSprites;
 
-    Controller2D controller;
-
     void Start()
     {
-        controller = GetComponent<Controller2D>();
+        
     }
 
     void Update()
