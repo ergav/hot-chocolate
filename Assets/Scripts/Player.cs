@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
 
     public float speed = 6;
 
+    public float fallMultiplier = 2;
+    public float lowJumpMultiplier = 2.5f;
+
     float velocityXSmoothing;
 
     float gravity;
@@ -44,6 +47,16 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && controller.collisions.below)
         {
             velocity.y = jumpVelocity;
+        }
+
+        //Hold space higher jump
+        if (velocity.y < 0)
+        {
+            velocity += Vector3.up * gravity * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            velocity += Vector3.up * gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
         float targetVelocityX = input.x * speed;

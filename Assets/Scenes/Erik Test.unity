@@ -583,6 +583,8 @@ MonoBehaviour:
   accelerationTimeAir: 0.2
   acelerationTimeGround: 0.1
   speed: 6
+  fallMultiplier: 2
+  lowJumpMultiplier: 2.5
 --- !u!61 &337362772
 BoxCollider2D:
   m_ObjectHideFlags: 0
