@@ -11,13 +11,11 @@ public class Controller2D : RaycastController
 
     //public LayerMask hazardMask;
 
-    Health health;
 
     public override void Start()
     {
         base.Start();
 
-        health = GetComponent<Health>();
     }
 
     private void Update()
@@ -88,11 +86,6 @@ public class Controller2D : RaycastController
                     continue;
                 }
 
-                //if (hit.transform.tag == "Hazard")
-                //{
-                //    Hazard hazard = hit.transform.GetComponent<Hazard>();
-                //    health.TakeDamage(hazard.damage);
-                //}
 
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -152,12 +145,6 @@ public class Controller2D : RaycastController
             {
                 velocity.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
-
-                //if (hit.transform.tag == "Hazard")
-                //{
-                //    Hazard hazard = hit.transform.GetComponent<Hazard>();
-                //    health.TakeDamage(hazard.damage);
-                //}
 
                 if (collisions.climbingSlope)
                 {

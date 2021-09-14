@@ -6,6 +6,8 @@ public class Hazard : RaycastController
 {
     public LayerMask hurtMask;
 
+    public bool destroyOnCollission;
+
     public int damage = 1;
 
     public bool hurtUp = true, hurtDown = true, hurtLeft = true, hurtRight = true;
@@ -56,6 +58,10 @@ public class Hazard : RaycastController
             {
                 Health health = hit.transform.GetComponent<Health>();
                 health.TakeDamage(damage);
+                if (destroyOnCollission)
+                {
+                    Destroy(this.gameObject);
+                }
                 
             }
         }
@@ -76,7 +82,10 @@ public class Hazard : RaycastController
             {
                 Health health = hit.transform.GetComponent<Health>();
                 health.TakeDamage(damage);
-
+                if (destroyOnCollission)
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
@@ -96,6 +105,10 @@ public class Hazard : RaycastController
             {
                 Health health = hit.transform.GetComponent<Health>();
                 health.TakeDamage(damage);
+                if (destroyOnCollission)
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
@@ -115,8 +128,20 @@ public class Hazard : RaycastController
             {
                 Health health = hit.transform.GetComponent<Health>();
                 health.TakeDamage(damage);
-
+                if (destroyOnCollission)
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.collider.tag == "Player")
+    //    {
+    //        Health health = collision.transform.GetComponent<Health>();
+    //        health.TakeDamage(damage);
+    //    }
+    //}
 }

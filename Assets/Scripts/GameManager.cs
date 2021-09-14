@@ -72,4 +72,10 @@ public class GameManager : MonoBehaviour
     {
         paused = false;
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("QUIT!");
+        Application.Quit();
+    }
 }
