@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
 {
     Controller2D controller;
 
-    public float jumpHeight = 4;
+    public float maxJumpHeight = 4;
+    public float minJumpHeight = 1;
     public float timeToJumpApex = 0.4f;
 
     public float accelerationTimeAir = 0.2f;
@@ -21,7 +22,8 @@ public class Player : MonoBehaviour
     float velocityXSmoothing;
 
     float gravity;
-    float jumpVelocity;
+    float maxJumpVelocity;
+    float minJumpVelocity;
     Vector3 velocity;
 
     void Start()
@@ -34,8 +36,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
-        jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
         if (controller.collisions.above || controller.collisions.below)
         {
@@ -46,18 +49,27 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && controller.collisions.below)
         {
-            velocity.y = jumpVelocity;
+            velocity.y = maxJumpVelocity;
         }
 
         //Hold space higher jump
-        if (velocity.y < 0)
+        if (Input.GetButtonUp("Jump") )
         {
-            velocity += Vector3.up * gravity * (fallMultiplier - 1) * Time.deltaTime;
+            if (velocity.y > minJumpVelocity)
+            {
+                velocity.y = minJumpVelocity;
+            }
         }
-        else if (velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            velocity += Vector3.up * gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
+
+        //Hold space higher jump (OLD VERSION)
+        //if (velocity.y < 0)
+        //{
+        //    velocity += Vector3.up * gravity * (fallMultiplier - 1) * Time.deltaTime;
+        //}
+        //else if (velocity.y > 0 && !Input.GetButton("Jump"))
+        //{
+        //    velocity += Vector3.up * gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
+        //}
 
         float targetVelocityX = input.x * speed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?acelerationTimeGround:accelerationTimeAir);

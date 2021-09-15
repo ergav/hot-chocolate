@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject pauseMenu;
-    public float respawnTime = 1;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] float respawnTime = 1;
+
+    public int points;
+    [SerializeField] Text pointsUI;
 
     public bool paused;
 
@@ -44,6 +47,11 @@ public class GameManager : MonoBehaviour
             {
                 PauseGame();
             }
+        }
+
+        if (pointsUI != null)
+        {
+            pointsUI.text = points.ToString();
         }
 
     }

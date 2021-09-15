@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Hazard : RaycastController
 {
-    public LayerMask hurtMask;
+    [SerializeField] LayerMask hurtMask;
 
-    public bool destroyOnCollission;
+    [SerializeField] bool destroyOnCollission;
 
     public int damage = 1;
 
-    public bool hurtUp = true, hurtDown = true, hurtLeft = true, hurtRight = true;
+    [SerializeField] bool hurtUp = true, hurtDown = true, hurtLeft = true, hurtRight = true;
 
-    void Start()
+    public override void Start()
     {
         base.Start();
 
