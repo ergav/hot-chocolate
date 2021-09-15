@@ -6,15 +6,11 @@ using UnityEngine.Events;
 
 public class Trigger : MonoBehaviour
 {
-    public UnityEvent[] triggerEvents;
-
+    public UnityEvent triggerEvent;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 0; i < triggerEvents.Length; i++)
-        {
-            triggerEvents[i].Invoke();
-        }
+        triggerEvent.Invoke();
     }
 
 

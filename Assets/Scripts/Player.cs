@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
 
     public float speed = 6;
 
-    public float fallMultiplier = 2;
-    public float lowJumpMultiplier = 2.5f;
+    //public float fallMultiplier = 2;
+    //public float lowJumpMultiplier = 2.5f;
 
     float velocityXSmoothing;
 
@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
         //gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex,2);
         //jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        //minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
+
     }
 
     void Update()
