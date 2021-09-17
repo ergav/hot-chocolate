@@ -7,14 +7,14 @@ public class Player : MonoBehaviour
 {
     Controller2D controller;
 
-    public float maxJumpHeight = 4;
-    public float minJumpHeight = 1;
-    public float timeToJumpApex = 0.4f;
+    [SerializeField] float maxJumpHeight = 4;
+    [SerializeField] float minJumpHeight = 1;
+    [SerializeField] float timeToJumpApex = 0.4f;
 
-    public float accelerationTimeAir = 0.2f;
-    public float acelerationTimeGround = 0.1f;
+    [SerializeField] float accelerationTimeAir = 0.2f;
+    [SerializeField] float acelerationTimeGround = 0.1f;
 
-    public float speed = 6;
+    [SerializeField] float speed = 6;
 
     //public float fallMultiplier = 2;
     //public float lowJumpMultiplier = 2.5f;
@@ -30,8 +30,8 @@ public class Player : MonoBehaviour
     {
         controller = GetComponent<Controller2D>();
 
-        //gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex,2);
-        //jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        //gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        //maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         //minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
     }
