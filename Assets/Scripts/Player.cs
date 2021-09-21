@@ -11,8 +11,16 @@ public class Player : MonoBehaviour
     [SerializeField] float minJumpHeight = 1;
     [SerializeField] float timeToJumpApex = 0.4f;
 
+    public Vector2 wallJumpClimb;
+    public Vector2 wallJumpOff;
+    public Vector2 wallJumpLeap;
+
     [SerializeField] float accelerationTimeAir = 0.2f;
     [SerializeField] float acelerationTimeGround = 0.1f;
+
+    public float wallSlideSpeedMax = 3;
+    public float wallStickTime = 0.25f;
+    float timeToWallUnstick;
 
     [SerializeField] float speed = 6;
 
@@ -42,16 +50,76 @@ public class Player : MonoBehaviour
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Horizontal"));
+        int wallDirX = (controller.collisions.left)?-1:1;
+
+        float targetVelocityX = input.x * speed;
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? acelerationTimeGround : accelerationTimeAir);
+
+        bool wallSliding = false;
+
+        if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0)
+        {
+            wallSliding = true;
+            if (velocity.y < -wallSlideSpeedMax)
+            {
+                velocity.y = -wallSlideSpeedMax;
+            }
+
+            if (timeToWallUnstick > 0)
+            {
+                velocityXSmoothing = 0;
+                velocity.x = 0;
+
+                if (input.x != wallDirX && input.x != 0)
+                {
+                    timeToWallUnstick -= Time.deltaTime;
+                }
+                else
+                {
+                    timeToWallUnstick = wallStickTime;
+                }
+            }
+            else
+            {
+                timeToWallUnstick = wallStickTime;
+
+            }
+        }
+
+
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
+
         }
 
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Horizontal"));
 
-        if (Input.GetButtonDown("Jump") && controller.collisions.below)
+        if (Input.GetButtonDown("Jump"))
         {
-            velocity.y = maxJumpVelocity;
+            if (wallSliding)
+            {
+                if (wallDirX == input.x)
+                {
+                    velocity.x = -wallDirX * wallJumpClimb.x;
+                    velocity.y = wallJumpClimb.y;
+                }
+                else if (wallDirX == 0)
+                {
+                    velocity.x = -wallDirX * wallJumpOff.x;
+                    velocity.y = wallJumpOff.y;
+                }
+                else
+                {
+                    velocity.x = -wallDirX * wallJumpLeap.x;
+                    velocity.y = wallJumpLeap.y;
+                }
+            }
+            if (controller.collisions.below)
+            {
+                velocity.y = maxJumpVelocity;
+
+            }
         }
 
         //Hold space higher jump
@@ -73,8 +141,7 @@ public class Player : MonoBehaviour
         //    velocity += Vector3.up * gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
         //}
 
-        float targetVelocityX = input.x * speed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?acelerationTimeGround:accelerationTimeAir);
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
