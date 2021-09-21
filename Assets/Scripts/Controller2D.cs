@@ -63,6 +63,17 @@ public class Controller2D : RaycastController
                 Debug.Log("up squish");
             }
         }
+
+
+        if (collisions.faceDir == 1)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+
+        }
     }
 
     void HorizontalCollisions(ref Vector3 velocity)
