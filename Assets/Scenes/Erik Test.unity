@@ -179,11 +179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7541bf1f84005f948a51d2212f1549b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 200
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
+  horizontalRaycount: 4
+  verticalRaycount: 200
   hurtMask:
     serializedVersion: 2
     m_Bits: 64
@@ -1503,6 +1503,7 @@ GameObject:
   - component: {fileID: 337362775}
   - component: {fileID: 337362771}
   - component: {fileID: 337362770}
+  - component: {fileID: 337362773}
   - component: {fileID: 337362776}
   m_Layer: 6
   m_Name: Player
@@ -1523,11 +1524,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5f28708ee15604b9422b91543f5786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 4
   collisionMask:
     serializedVersion: 2
     m_Bits: 128
+  horizontalRaycount: 4
+  verticalRaycount: 4
   maxClimbAngle: 70
   maxDesendAngle: 65
 --- !u!114 &337362771
@@ -1579,6 +1580,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &337362773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337362769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ff45daf25ee2f4e813994604f1e63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &337362774
 Transform:
   m_ObjectHideFlags: 0
@@ -2201,11 +2214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7541bf1f84005f948a51d2212f1549b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 20
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
+  horizontalRaycount: 4
+  verticalRaycount: 20
   hurtMask:
     serializedVersion: 2
     m_Bits: 64
@@ -3099,11 +3112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2f5696fa08fa9408156c4ea0e7832a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 4
   collisionMask:
     serializedVersion: 2
     m_Bits: 128
+  horizontalRaycount: 4
+  verticalRaycount: 4
   passengerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -4017,11 +4030,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2f5696fa08fa9408156c4ea0e7832a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 4
   collisionMask:
     serializedVersion: 2
     m_Bits: 128
+  horizontalRaycount: 4
+  verticalRaycount: 4
   passengerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -4599,11 +4612,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2f5696fa08fa9408156c4ea0e7832a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 4
   collisionMask:
     serializedVersion: 2
     m_Bits: 128
+  horizontalRaycount: 4
+  verticalRaycount: 4
   passengerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -5115,11 +5128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7541bf1f84005f948a51d2212f1549b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 4
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
+  horizontalRaycount: 4
+  verticalRaycount: 4
   hurtMask:
     serializedVersion: 2
     m_Bits: 64
@@ -5933,11 +5946,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7541bf1f84005f948a51d2212f1549b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 15
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
+  horizontalRaycount: 4
+  verticalRaycount: 15
   hurtMask:
     serializedVersion: 2
     m_Bits: 64
@@ -6964,11 +6977,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7541bf1f84005f948a51d2212f1549b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalRaycount: 4
-  verticalRaycount: 4
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
+  horizontalRaycount: 4
+  verticalRaycount: 4
   hurtMask:
     serializedVersion: 2
     m_Bits: 64
@@ -6991,7 +7004,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 707.49805, y: -0.99286056}
+  m_Offset: {x: 707.47656, y: 0.1752314}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7002,7 +7015,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 43865.8, y: 0.9845238}
+  m_Size: {x: 148126.7, y: 3.3207078}
   m_EdgeRadius: 0
 --- !u!50 &2009846151
 Rigidbody2D:

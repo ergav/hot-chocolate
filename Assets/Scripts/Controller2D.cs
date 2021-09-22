@@ -27,7 +27,7 @@ public class Controller2D : RaycastController
 
     }
 
-    public void Move(Vector3 velocity, bool standingOnPlatform = false)
+    public void Move(Vector2 velocity, bool standingOnPlatform = false)
     {
         UpdateRaycastOrigins();
         collisions.Reset();
@@ -67,16 +67,16 @@ public class Controller2D : RaycastController
 
         if (collisions.faceDir == 1)
         {
-            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector2(1, transform.localScale.y);
         }
         else
         {
-            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector2(-1, transform.localScale.y);
 
         }
     }
 
-    void HorizontalCollisions(ref Vector3 velocity)
+    void HorizontalCollisions(ref Vector2 velocity)
     {
         float directionX = collisions.faceDir;
         float rayLength = Mathf.Abs(velocity.x) + skinWidth;
@@ -144,7 +144,7 @@ public class Controller2D : RaycastController
         }
     }
 
-    void VerticalCollisions(ref Vector3 velocity)
+    void VerticalCollisions(ref Vector2 velocity)
     {
         float directionY = Mathf.Sign(velocity.y);
         float rayLength = Mathf.Abs(velocity.y) + skinWidth;
@@ -192,7 +192,7 @@ public class Controller2D : RaycastController
         }
     }
 
-    void ClimbSlope(ref Vector3 velocity, float slopeAngle)
+    void ClimbSlope(ref Vector2 velocity, float slopeAngle)
     {
         float moveDistance = Mathf.Abs(velocity.x);
         float climbVelocityY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
@@ -208,7 +208,7 @@ public class Controller2D : RaycastController
 
     }
 
-    void DescendSlope(ref Vector3 velocity)
+    void DescendSlope(ref Vector2 velocity)
     {
         float directionX = Mathf.Sign(velocity.x);
 
@@ -246,7 +246,7 @@ public class Controller2D : RaycastController
         public bool climbingSlope, descendingSlope;
         public float slopeAngle ,slopeAngleOld;
 
-        public Vector3 velocityOld;
+        public Vector2 velocityOld;
         public int faceDir;
 
         public void Reset()
