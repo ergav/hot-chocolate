@@ -39,9 +39,12 @@ public class Player : MonoBehaviour
     bool wallSliding;
     int wallDirX;
 
+    PlayerAnimations playerAnimations;
+
     void Start()
     {
         controller = GetComponent<Controller2D>();
+        playerAnimations = GetComponent<PlayerAnimations>();
 
         //gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         //maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -67,6 +70,7 @@ public class Player : MonoBehaviour
             {
                 velocity.x = -wallDirX * wallJumpOff.x;
                 velocity.y = wallJumpOff.y;
+
             }
             else
             {

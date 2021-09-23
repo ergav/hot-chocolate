@@ -65,15 +65,15 @@ public class Controller2D : RaycastController
         }
 
 
-        if (collisions.faceDir == 1)
-        {
-            transform.localScale = new Vector2(1, transform.localScale.y);
-        }
-        else
-        {
-            transform.localScale = new Vector2(-1, transform.localScale.y);
+        //if (collisions.faceDir == 1)
+        //{
+        //    transform.localScale = new Vector2(1, transform.localScale.y);
+        //}
+        //else
+        //{
+        //    transform.localScale = new Vector2(-1, transform.localScale.y);
 
-        }
+        //}
     }
 
     void HorizontalCollisions(ref Vector2 velocity)
