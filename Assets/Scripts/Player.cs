@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     Vector2 directionalInput;
 
-    bool wallSliding;
+    [HideInInspector]public bool wallSliding;
     int wallDirX;
 
     PlayerAnimations playerAnimations;
@@ -66,10 +66,18 @@ public class Player : MonoBehaviour
                 velocity.x = -wallDirX * wallJumpClimb.x;
                 velocity.y = wallJumpClimb.y;
             }
-            else if (wallDirX == 0)
+            else if (directionalInput.x == 0)
             {
                 velocity.x = -wallDirX * wallJumpOff.x;
                 velocity.y = wallJumpOff.y;
+                if (!playerAnimations.facingRight)
+                {
+                    playerAnimations.facingRight = true;
+                }
+                else
+                {
+                    playerAnimations.facingRight = false;
+                }
 
             }
             else

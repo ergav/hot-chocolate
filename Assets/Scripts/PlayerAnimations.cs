@@ -6,6 +6,8 @@ public class PlayerAnimations : MonoBehaviour
 {
     public Animator anim;
 
+    Player player;
+
     [HideInInspector]public bool facingRight = true;
 
     void Start()
@@ -17,6 +19,8 @@ public class PlayerAnimations : MonoBehaviour
             {
                 anim = GetComponentInChildren<Animator>();
             }
+
+            player = GetComponent<Player>();
         }
     }
 
@@ -26,13 +30,18 @@ public class PlayerAnimations : MonoBehaviour
 
         float setFaceDir = Input.GetAxisRaw("Horizontal");
 
-        if (setFaceDir > 0)
+        if (!player.wallSliding)
         {
-            facingRight = true;
+            if (setFaceDir > 0)
+            {
+                facingRight = true;
+            }
+            else if (setFaceDir < 0)
+            {
+                facingRight = false;
+            }
         }
-        else if (setFaceDir < 0)
-        {
-            facingRight = false;
-        }
+
+        
     }
 }
