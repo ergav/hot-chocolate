@@ -8,9 +8,12 @@ public class PlayerAnimations : MonoBehaviour
 
     Player player;
 
+    Health health;
+
     public RuntimeAnimatorController player1Controller, player2Controller;
 
     [HideInInspector]public bool facingRight = true;
+    [HideInInspector]public bool hurt;
 
     void Start()
     {
@@ -23,12 +26,15 @@ public class PlayerAnimations : MonoBehaviour
             }
 
             player = GetComponent<Player>();
+
+            health = GetComponent<Health>();
         }
     }
 
     void Update()
     {
         anim.SetBool("facingRight", facingRight);
+        anim.SetBool("hurt", hurt);
 
         float setFaceDir = Input.GetAxisRaw("Horizontal");
 
@@ -44,6 +50,14 @@ public class PlayerAnimations : MonoBehaviour
             }
         }
 
-        
+        if (health.currentHealth <= 1)
+        {
+            hurt = true;
+        }
+        else
+        {
+            hurt = false;
+        }
+
     }
 }

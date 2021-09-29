@@ -1930,6 +1930,7 @@ MonoBehaviour:
   player1Controller: {fileID: 9100000, guid: 2ff2b43dc0d06e24eb6da8905b4c3e21, type: 2}
   player2Controller: {fileID: 9100000, guid: 970467d70198c1749aaa35d07028ac14, type: 2}
   facingRight: 1
+  hurt: 0
 --- !u!1 &408361657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,7 +2630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570be9d430ae34747819d7295c8eb6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player2Selected: 0
   player: {fileID: 0}
   pauseMenu: {fileID: 1370273997}
   respawnTime: 1
@@ -5736,6 +5736,7 @@ MonoBehaviour:
   player1Controller: {fileID: 0}
   player2Controller: {fileID: 0}
   facingRight: 1
+  hurt: 0
 --- !u!114 &1566665698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7687,7 +7688,7 @@ Animator:
   m_GameObject: {fileID: 1997886286}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ff2b43dc0d06e24eb6da8905b4c3e21, type: 2}
+  m_Controller: {fileID: 9100000, guid: 970467d70198c1749aaa35d07028ac14, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

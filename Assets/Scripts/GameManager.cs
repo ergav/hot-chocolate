@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public bool player2Selected;
-
     SelectPlayer selectPlayer;
 
     [SerializeField] GameObject player;
