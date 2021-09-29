@@ -6,11 +6,24 @@ public class SelectPlayer : MonoBehaviour
 {
     public bool player2Selected;
 
+    static SelectPlayer selectPlayerInstance;
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Awake()
+    {
+        if (selectPlayerInstance == null)
+        {
+            selectPlayerInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void SetPlayer1()
     {
