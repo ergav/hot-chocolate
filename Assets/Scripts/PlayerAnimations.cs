@@ -8,6 +8,8 @@ public class PlayerAnimations : MonoBehaviour
 
     Player player;
 
+    public RuntimeAnimatorController player1Controller, player2Controller;
+
     [HideInInspector]public bool facingRight = true;
 
     void Start()

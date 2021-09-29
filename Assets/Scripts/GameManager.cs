@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public bool player2Selected;
+
+    SelectPlayer selectPlayer;
+
     [SerializeField] GameObject player;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] float respawnTime = 1;
@@ -21,6 +25,17 @@ public class GameManager : MonoBehaviour
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        selectPlayer = GameObject.Find("PlayerSelect").GetComponent<SelectPlayer>();
+
+        if (selectPlayer != null)
+        {
+            if (selectPlayer.player2Selected)
+            {
+                player.GetComponent<PlayerAnimations>().anim.runtimeAnimatorController = player.GetComponent<PlayerAnimations>().player2Controller;
+            }
+
         }
     }
 
