@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
     public int currentHealth = 4;
     public int maxHealth = 4;
+    public int lowHealth = 1;
 
     [SerializeField] float iframeTime = 1;
 

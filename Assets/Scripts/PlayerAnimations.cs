@@ -50,7 +50,7 @@ public class PlayerAnimations : MonoBehaviour
             }
         }
 
-        if (health.currentHealth <= 1)
+        if (health.currentHealth <= health.lowHealth)
         {
             hurt = true;
         }
