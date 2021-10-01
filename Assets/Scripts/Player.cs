@@ -72,11 +72,17 @@ public class Player : MonoBehaviour
                 velocity.y = wallJumpOff.y;
                 if (!playerAnimations.facingRight)
                 {
-                    playerAnimations.facingRight = true;
+                    if (wallDirX < 0)
+                    {
+                        playerAnimations.facingRight = true;
+                    }
                 }
                 else
                 {
-                    playerAnimations.facingRight = false;
+                    if (wallDirX > 0)
+                    {
+                        playerAnimations.facingRight = false;
+                    }
                 }
 
             }
