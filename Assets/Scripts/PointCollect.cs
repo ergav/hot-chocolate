@@ -10,11 +10,19 @@ public class PointCollect : MonoBehaviour
 
     [SerializeField] GameManager gameManager;
 
+    public AudioSource audioSource;
+    public AudioClip collectSound;
+
     private void Start()
     {
         if (gameManager == null)
         {
             gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        }
+
+        if (audioSource == null)
+        {
+            audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         }
     }
 
@@ -28,6 +36,7 @@ public class PointCollect : MonoBehaviour
         if (collision.tag == "Player")
         {
             gameManager.points += pointsWorth;
+            audioSource.PlayOneShot(collectSound);
             Destroy(gameObject);
         }
 

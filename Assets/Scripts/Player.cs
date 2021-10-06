@@ -40,11 +40,13 @@ public class Player : MonoBehaviour
     int wallDirX;
 
     PlayerAnimations playerAnimations;
+    PlayerSound playerSound;
 
     void Start()
     {
         controller = GetComponent<Controller2D>();
         playerAnimations = GetComponent<PlayerAnimations>();
+        playerSound = GetComponent<PlayerSound>();
 
         //gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         //maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -65,6 +67,10 @@ public class Player : MonoBehaviour
             {
                 velocity.x = -wallDirX * wallJumpClimb.x;
                 velocity.y = wallJumpClimb.y;
+                if (playerSound != null)
+                {
+                    playerSound.Jump();
+                }
             }
             else if (directionalInput.x == 0)
             {
@@ -84,17 +90,28 @@ public class Player : MonoBehaviour
                         playerAnimations.facingRight = false;
                     }
                 }
-
+                if (playerSound != null)
+                {
+                    playerSound.Jump();
+                }
             }
             else
             {
                 velocity.x = -wallDirX * wallJumpLeap.x;
                 velocity.y = wallJumpLeap.y;
+                if (playerSound != null)
+                {
+                    playerSound.Jump();
+                }
             }
         }
         if (controller.collisions.below)
         {
             velocity.y = maxJumpVelocity;
+            if (playerSound != null)
+            {
+                playerSound.Jump();
+            }
         }
     }
 

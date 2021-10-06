@@ -18,9 +18,11 @@ public class Health : MonoBehaviour
     public Image HealthUI;
     public Sprite[] healthSprites;
 
+    PlayerSound playerSound;
+
     void Start()
     {
-        
+        playerSound = GetComponent<PlayerSound>();
     }
 
     void Update()
@@ -46,6 +48,10 @@ public class Health : MonoBehaviour
             currentHealth -= amount;
             iframe = true;
             StartCoroutine(IFrameTimer());
+            if (playerSound != null && currentHealth > 0)
+            {
+                playerSound.Hurt();
+            }
         }
     }
 
@@ -61,6 +67,12 @@ public class Health : MonoBehaviour
             Debug.Log("You are dead, not big surprise!");
             dead = true;
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().StartRespawnCount();
+
+            if (playerSound != null)
+            {
+                playerSound.Death();
+            }
+
             Destroy(this.gameObject);
         }
     }
