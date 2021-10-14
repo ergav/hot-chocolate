@@ -25,6 +25,7 @@ public class FallingObject : MonoBehaviour
             rb.isKinematic = false;
             rb.simulated = true;
         }
+
     }
 
     public void TriggerFall()
