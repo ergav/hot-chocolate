@@ -1536,18 +1536,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 582341085}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1195320694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1824,6 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteToChangeTo: {fileID: 21300000, guid: 833cd9b7a10935c438a6e4561689877d, type: 3}
+  audioSource: {fileID: 582341085}
 --- !u!114 &1500135383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,18 +2082,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1500135382}
         m_TargetAssemblyTypeName: ChangeSprite, Assembly-CSharp
         m_MethodName: ChangeTheSprite
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 582341085}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
