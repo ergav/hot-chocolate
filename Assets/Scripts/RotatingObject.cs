@@ -10,6 +10,8 @@ public class RotatingObject : MonoBehaviour
 
     int dirRNGX, dirRNGY, dirRNGZ;
 
+    [SerializeField] bool rotate;
+
     FallingObject fallingObject;
 
     void Start()
@@ -49,10 +51,19 @@ public class RotatingObject : MonoBehaviour
 
     void Update()
     {
-        if (fallingObject.falling)
+        if (fallingObject != null)
+        {
+            if (fallingObject.falling)
+            {
+                rotate = true;
+
+            }
+        }
+
+
+        if (rotate)
         {
             transform.Rotate(speedRotate.x * Time.deltaTime, speedRotate.y * Time.deltaTime, speedRotate.z * Time.deltaTime);
-
         }
     }
 }
