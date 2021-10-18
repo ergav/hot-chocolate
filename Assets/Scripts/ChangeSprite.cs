@@ -11,17 +11,30 @@ public class ChangeSprite : MonoBehaviour
     Animator anim;
     bool stop;
 
+    public AudioSource audioSource;
+
     private void Start()
     {
         mainSprite = GetComponent<Image>();
         anim = GetComponent<Animator>();
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
     }
 
     public void ChangeTheSprite()
     {
         mainSprite.sprite = spriteToChangeTo;
+        if (audioSource != null && !stop)
+        {
+            audioSource.Play();
+        }
         stop = true;
+
+
     }
 
     private void Update()
