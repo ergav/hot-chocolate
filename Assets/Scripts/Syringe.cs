@@ -7,17 +7,26 @@ public class Syringe : MonoBehaviour
     public Vector3[] localWaypoints;
     Vector3[] globalWayPoints;
 
-    public float speed;
+    float speed;
+    public float fallSpeed;
+    public float ascendSpeed;
     public float waitTime;
-    [Range(0, 2)] public float easeAmount;
+    public float waitTimeUp;
+    public float initialWaitTime;
 
-    public bool cyclic;
+    [Range(0, 2)] public float easeAmount;
 
     int fromWaypointIndex;
     float percentBeweenWaypoints;
     float nextMoveTime;
 
-    public bool playerNearby;
+    bool playerNearby;
+
+    public bool fall;
+
+    public bool moving;
+
+    Vector3 velocity;
 
     private void Start()
     {
@@ -26,18 +35,44 @@ public class Syringe : MonoBehaviour
         {
             globalWayPoints[i] = localWaypoints[i] + transform.position;
         }
+
     }
 
     void Update()
     {
         if (playerNearby)
         {
-            Vector3 velocity = CalculatePlatformMovement();
+            velocity = CalculatePlatformMovement();
+
+            moving = true;
+
+            transform.Translate(velocity);
+        }
+        else if ((!playerNearby && !fall) || moving)
+        {
+            velocity = CalculatePlatformMovement();
 
             transform.Translate(velocity);
         }
 
 
+        if (fromWaypointIndex == 0)
+        {
+            fall = true;
+        }
+        else
+        {
+            fall = false;
+        }
+
+        if (fall)
+        {
+            speed = fallSpeed;
+        }
+        else
+        {
+            speed = ascendSpeed;
+        }
     }
 
     float Ease(float x)
@@ -67,11 +102,31 @@ public class Syringe : MonoBehaviour
             percentBeweenWaypoints = 0;
             fromWaypointIndex++;
 
-            nextMoveTime = Time.time + waitTime;
+            moving = false;
+
+            if (fall)
+            {
+                nextMoveTime = Time.time + waitTime;
+            }
+            else
+            {
+                nextMoveTime = Time.time + waitTimeUp;
+            }
 
         }
 
         return newPos - transform.position;
+    }
+
+    public void DetectPlayer()
+    {
+        nextMoveTime = Time.time + initialWaitTime;
+        playerNearby = true;
+    }
+
+    public void LosePlayer()
+    {
+        playerNearby = false;
     }
 
     private void OnDrawGizmos()
