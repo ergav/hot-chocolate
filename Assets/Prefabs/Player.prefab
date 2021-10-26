@@ -307,12 +307,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0243e810e24097d4db41b0e94fe493ae, type: 3}
   - {fileID: 8300000, guid: 70f49c475a7716e4fad400c6816e469d, type: 3}
   deathSounds:
-  - {fileID: 8300000, guid: 2cb69ae81fcf92d41a41e4317d29c518, type: 3}
+  - {fileID: 8300000, guid: 8c64e459368a84b4aac9e5a4a7aa27a8, type: 3}
   jumpSounds:
-  - {fileID: 8300000, guid: 3add1dda6d3833c45bf8cb650a8e912d, type: 3}
-  - {fileID: 8300000, guid: 39e3afbdfb6d0034d8e3b31c7b2bf3a8, type: 3}
-  - {fileID: 8300000, guid: 8a97ad2059379a048ba6214b47249929, type: 3}
-  - {fileID: 8300000, guid: f6cceb36277f1574b9fb4d4afaaffb2e, type: 3}
+  - {fileID: 8300000, guid: 31947587d0c9c354fadfbbbadb4a93e3, type: 3}
 --- !u!82 &6796107280288486311
 AudioSource:
   m_ObjectHideFlags: 0
