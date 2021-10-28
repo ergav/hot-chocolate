@@ -40,6 +40,8 @@ public class Syringe : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(fromWaypointIndex);
+
         if (playerNearby)
         {
             velocity = CalculatePlatformMovement();
@@ -56,7 +58,7 @@ public class Syringe : MonoBehaviour
         }
 
 
-        if (fromWaypointIndex == 0)
+        if (fromWaypointIndex != 1)
         {
             fall = true;
         }
