@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
     PlayerAnimations playerAnimations;
     PlayerSound playerSound;
 
+    public bool canJumpNoMatterWhat;
+
     void Start()
     {
         controller = GetComponent<Controller2D>();
@@ -105,7 +107,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        if (controller.collisions.below)
+        if (controller.collisions.below || canJumpNoMatterWhat)
         {
             velocity.y = maxJumpVelocity;
             if (playerSound != null)
