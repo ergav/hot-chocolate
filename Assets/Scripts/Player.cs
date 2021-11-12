@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     PlayerAnimations playerAnimations;
     PlayerSound playerSound;
 
-    public bool canJumpNoMatterWhat;
+    [HideInInspector]public bool canJumpNoMatterWhat;
 
     void Start()
     {

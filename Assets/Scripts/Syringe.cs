@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Syringe : MonoBehaviour
 {
-    public Vector3[] localWaypoints;
+    [SerializeField] Vector3[] localWaypoints;
     Vector3[] globalWayPoints;
 
     float speed;
-    public float fallSpeed;
-    public float ascendSpeed;
-    public float waitTime;
-    public float waitTimeUp;
-    public float initialWaitTime;
+    [SerializeField] float fallSpeed;
+    [SerializeField] float ascendSpeed;
+    [SerializeField] float waitTime;
+    [SerializeField] float waitTimeUp;
+    [SerializeField] float initialWaitTime;
 
     [Range(0, 2)] public float easeAmount;
 
@@ -22,11 +24,15 @@ public class Syringe : MonoBehaviour
 
     bool playerNearby;
 
-    public bool fall;
+    [SerializeField] bool fall;
 
     public bool moving;
 
     Vector3 velocity;
+
+    AudioSource audioSource;
+
+    [SerializeField] AudioClip stabSound;
 
     private void Start()
     {
@@ -35,6 +41,8 @@ public class Syringe : MonoBehaviour
         {
             globalWayPoints[i] = localWaypoints[i] + transform.position;
         }
+
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -109,6 +117,7 @@ public class Syringe : MonoBehaviour
             if (fall)
             {
                 nextMoveTime = Time.time + waitTime;
+                audioSource.PlayOneShot(stabSound);
             }
             else
             {
