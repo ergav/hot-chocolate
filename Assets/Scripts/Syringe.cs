@@ -48,7 +48,7 @@ public class Syringe : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(fromWaypointIndex);
+        //Debug.Log(fromWaypointIndex);
 
         if (playerNearby)
         {
