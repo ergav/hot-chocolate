@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
         {
             Debug.Log("You are dead, not big surprise!");
             dead = true;
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().StartRespawnCount();
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().PlayerDeath();
 
             if (playerSound != null)
             {
