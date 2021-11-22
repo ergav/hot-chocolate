@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public int points;
     [SerializeField] Text pointsUI;
+    [SerializeField] GameObject deathScreen;
 
     public bool paused;
 
@@ -78,6 +79,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(respawnTime);
         Respawn();
+    }
+
+    public void PlayerDeath()
+    {
+        deathScreen.SetActive(true);
     }
 
     public void Respawn()
