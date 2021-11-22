@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject deathScreen;
 
     public bool paused;
+    public bool goalReached;
 
     void Start()
     {
@@ -40,14 +41,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (paused)
+        if (paused || goalReached)
         {
-            pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
         else
         {
-            pauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
 
@@ -59,7 +58,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                PauseGame();
+                if (!goalReached)
+                {
+                    PauseGame();
+                }
             }
         }
 
@@ -86,6 +88,11 @@ public class GameManager : MonoBehaviour
         deathScreen.SetActive(true);
     }
 
+    public void GoalReached()
+    {
+        goalReached = true;
+    }
+
     public void Respawn()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -94,10 +101,14 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         paused = true;
+        pauseMenu.SetActive(true);
+
     }
     public void ResumeGame()
     {
         paused = false;
+        pauseMenu.SetActive(false);
+
     }
 
     public void QuitGame()
