@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDeath()
     {
         deathScreen.SetActive(true);
+        StartRespawnCount();
     }
 
     public void GoalReached()
