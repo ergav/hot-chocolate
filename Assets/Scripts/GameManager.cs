@@ -112,6 +112,14 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ExitToMenu()
+    {
+        Destroy(selectPlayer.gameObject);
+        paused = false;
+        SceneManager.LoadScene(0);
+
+    }
+
     public void QuitGame()
     {
         Debug.Log("QUIT!");
