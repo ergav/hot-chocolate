@@ -8,7 +8,7 @@ public class Parallax : MonoBehaviour
     public Camera cam;
     public float parallaxEffect;
 
-
+    [SerializeField] bool dontLoop;
     void Start()
     {
         startPos = transform.position.x;
@@ -25,13 +25,17 @@ public class Parallax : MonoBehaviour
 
         transform.localPosition = new Vector3(startPos + dist, startPosY + disty, transform.localPosition.z);
 
-        if (temp > startPos + length)
+        if (!dontLoop)
         {
-            startPos += length;
+            if (temp > startPos + length)
+            {
+                startPos += length;
+            }
+            else if (temp < startPos - length)
+            {
+                startPos -= length;
+            }
         }
-        else if (temp < startPos - length)
-        {
-            startPos -= length;
-        }
+
     }
 }
