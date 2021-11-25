@@ -18,11 +18,17 @@ public class Health : MonoBehaviour
     public Image HealthUI;
     public Sprite[] healthSprites;
 
+    Player player;
+    PlayerInput playerInput;
     PlayerSound playerSound;
+    PlayerAnimations playerAnimations;
 
     void Start()
     {
+        player = GetComponent<Player>();
         playerSound = GetComponent<PlayerSound>();
+        playerAnimations = GetComponent<PlayerAnimations>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     void Update()
@@ -73,7 +79,14 @@ public class Health : MonoBehaviour
                 playerSound.Death();
             }
 
-            Destroy(this.gameObject);
+            if (playerAnimations != null)
+            {
+                playerAnimations.Death();
+            }
+
+            playerInput.enabled = false;
+            player.SetDirectionalInput(Vector2.zero);
+            //Destroy(this.gameObject);
         }
     }
 

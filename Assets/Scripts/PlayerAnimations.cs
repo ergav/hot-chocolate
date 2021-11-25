@@ -59,5 +59,12 @@ public class PlayerAnimations : MonoBehaviour
             hurt = false;
         }
 
+
+
+    }
+
+    public void Death()
+    {
+        anim.SetTrigger("Death");
     }
 }
