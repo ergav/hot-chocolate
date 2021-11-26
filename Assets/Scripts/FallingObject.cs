@@ -6,7 +6,8 @@ public class FallingObject : MonoBehaviour
 {
     Rigidbody2D rb;
     public bool falling;
-    public float despawnTime = 5;
+    [SerializeField] float fallSpeed = 20;
+    [SerializeField] float despawnTime = 5;
 
     void Start()
     {
@@ -17,13 +18,19 @@ public class FallingObject : MonoBehaviour
     {
         if (!falling)
         {
-            rb.isKinematic = true;
-            rb.simulated = false;
+            //rb.isKinematic = true;
+            //rb.simulated = false;
+
+            transform.Translate(Vector3.zero);
         }
         else
         {
-            rb.isKinematic = false;
-            rb.simulated = true;
+            //rb.isKinematic = false;
+            //rb.simulated = true;
+
+           
+            transform.Translate(0, -fallSpeed * Time.deltaTime, 0);
+            
         }
 
     }
