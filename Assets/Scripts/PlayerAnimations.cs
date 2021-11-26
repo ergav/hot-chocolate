@@ -15,6 +15,8 @@ public class PlayerAnimations : MonoBehaviour
     [HideInInspector]public bool facingRight = true;
     [HideInInspector]public bool hurt;
 
+    SpriteRenderer spriteRenderer;
+
     void Start()
     {
         if (anim == null)
@@ -28,6 +30,14 @@ public class PlayerAnimations : MonoBehaviour
             player = GetComponent<Player>();
 
             health = GetComponent<Health>();
+
+            spriteRenderer = GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+            }
         }
     }
 
@@ -65,6 +75,10 @@ public class PlayerAnimations : MonoBehaviour
 
     public void Death()
     {
+        if (!facingRight)
+        {
+            spriteRenderer.flipX = true;
+        }
         anim.SetTrigger("Death");
     }
 }
