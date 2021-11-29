@@ -1743,6 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc8c0a17bde52a4c8f6e7f74a045746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collissionTagName: Player
   triggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1761,6 +1762,8 @@ MonoBehaviour:
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls: []
+  onceOnly: 0
+  delay: 0
 --- !u!61 &427999720
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3798,6 +3801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc8c0a17bde52a4c8f6e7f74a045746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collissionTagName: Player
   triggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3816,6 +3820,8 @@ MonoBehaviour:
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls: []
+  onceOnly: 0
+  delay: 0
 --- !u!61 &1224583257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4688,6 +4694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   falling: 0
+  fallSpeed: 20
   despawnTime: 5
 --- !u!114 &1598993908
 MonoBehaviour:
@@ -5494,6 +5501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc8c0a17bde52a4c8f6e7f74a045746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collissionTagName: Player
   triggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5524,6 +5532,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onceOnly: 0
+  delay: 0
 --- !u!61 &1862557413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7001,6 +7011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   falling: 0
+  fallSpeed: 20
   despawnTime: 5
 --- !u!50 &312500046746697177
 Rigidbody2D:

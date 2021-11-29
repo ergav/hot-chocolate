@@ -6,24 +6,43 @@ using UnityEngine.Events;
 
 public class Trigger : MonoBehaviour
 {
+    [SerializeField] string collissionTagName = "Player";
+
     public UnityEvent triggerEvent;
     public UnityEvent triggerExitEvent;
 
     [SerializeField] bool onceOnly;
+    bool activated;
 
     [SerializeField] float delay = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(TriggerEnterDelay());
+        if (collision.tag == collissionTagName)
+        {
+            if (onceOnly)
+            {
+                if (!activated)
+                {
+                    StartCoroutine(TriggerEnterDelay());
+                    activated = true;
+                }
+            }
+            else
+            {
+                StartCoroutine(TriggerEnterDelay());
+
+            }
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        triggerExitEvent.Invoke();
-        if (onceOnly)
+        if (collision.tag == collissionTagName)
         {
-            Destroy(gameObject);
+            triggerExitEvent.Invoke();
+
         }
 
     }
@@ -32,7 +51,7 @@ public class Trigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         triggerEvent.Invoke();
-
+        Destroy(gameObject);
     }
 
 }
