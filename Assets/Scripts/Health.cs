@@ -12,8 +12,8 @@ public class Health : MonoBehaviour
 
     [SerializeField] float iframeTime = 1;
 
-    bool dead;
-    bool iframe;
+    [HideInInspector]public bool dead;
+    [HideInInspector]public bool iframe;
 
     public Image HealthUI;
     public Sprite[] healthSprites;

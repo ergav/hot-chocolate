@@ -73,7 +73,7 @@ public class Hazard : RaycastController
 
                 if (audioSource != null && impactSound != null)
                 {
-                    if (!soundIsPlaying && health.currentHealth > 0)
+                    if (!soundIsPlaying && !health.dead && !health.iframe)
                     {
                         soundIsPlaying = true;
                         audioSource.PlayOneShot(impactSound);
@@ -109,7 +109,7 @@ public class Hazard : RaycastController
 
                 if (audioSource != null && impactSound != null)
                 {
-                    if (!soundIsPlaying && health.currentHealth > 0)
+                    if (!soundIsPlaying && !health.dead && !health.iframe)
                     {
                         soundIsPlaying = true;
                         audioSource.PlayOneShot(impactSound);
@@ -144,7 +144,7 @@ public class Hazard : RaycastController
 
                 if (audioSource != null && impactSound != null)
                 {
-                    if (!soundIsPlaying && health.currentHealth > 0)
+                    if (!soundIsPlaying && !health.dead && !health.iframe)
                     {
                         soundIsPlaying = true;
                         audioSource.PlayOneShot(impactSound);
@@ -179,7 +179,7 @@ public class Hazard : RaycastController
 
                 if (audioSource != null && impactSound != null)
                 {
-                    if (!soundIsPlaying && health.currentHealth > 0)
+                    if (!soundIsPlaying && !health.dead && !health.iframe)
                     {
                         soundIsPlaying = true;
                         audioSource.PlayOneShot(impactSound);
@@ -196,6 +196,7 @@ public class Hazard : RaycastController
             }
         }
     }
+
 
     IEnumerator SoundPlaying(float time)
     {
