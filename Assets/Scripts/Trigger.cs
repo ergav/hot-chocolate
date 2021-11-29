@@ -51,7 +51,10 @@ public class Trigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         triggerEvent.Invoke();
-        Destroy(gameObject);
+        if (onceOnly)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

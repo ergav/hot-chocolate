@@ -9480,7 +9480,7 @@ MonoBehaviour:
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls: []
-  onceOnly: 0
+  onceOnly: 1
   delay: 0
 --- !u!61 &1393966551
 BoxCollider2D:
