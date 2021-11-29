@@ -723,8 +723,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -3}
   - {x: 2.93, y: 0, z: -3}
   hazardToSpawn: {fileID: 8273951900870054979, guid: 37516b46e971c7545bfeb8c3e624df31, type: 3}
-  minTimeBetweenFalls: 0.5
-  maxTimeBetweenFalls: 1.5
+  minTimeBetweenFalls: 0.25
+  maxTimeBetweenFalls: 0.75
   activeTime: 10
 --- !u!4 &48147289
 Transform:
@@ -4491,6 +4491,8 @@ MonoBehaviour:
   hurtDown: 1
   hurtLeft: 0
   hurtRight: 0
+  audioSource: {fileID: 0}
+  impactSound: {fileID: 0}
 --- !u!61 &636492231
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7369,6 +7371,8 @@ MonoBehaviour:
   hurtDown: 1
   hurtLeft: 0
   hurtRight: 0
+  audioSource: {fileID: 0}
+  impactSound: {fileID: 0}
 --- !u!61 &1048435725
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8440,6 +8444,8 @@ MonoBehaviour:
   hurtDown: 1
   hurtLeft: 1
   hurtRight: 1
+  audioSource: {fileID: 0}
+  impactSound: {fileID: 0}
 --- !u!4 &1145431122
 Transform:
   m_ObjectHideFlags: 0

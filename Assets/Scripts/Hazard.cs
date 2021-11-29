@@ -12,9 +12,22 @@ public class Hazard : RaycastController
 
     [SerializeField] bool hurtUp = true, hurtDown = true, hurtLeft = true, hurtRight = true;
 
+    [SerializeField]AudioSource audioSource;
+    [SerializeField] AudioClip impactSound;
+    bool soundIsPlaying;
+
     public override void Start()
     {
         base.Start();
+
+        if (audioSource == null)
+        {
+            audioSource = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+            }
+        }
 
     }
 
@@ -57,7 +70,19 @@ public class Hazard : RaycastController
             if (hit)
             {
                 Health health = hit.transform.GetComponent<Health>();
+
+                if (audioSource != null && impactSound != null)
+                {
+                    if (!soundIsPlaying && health.currentHealth > 0)
+                    {
+                        soundIsPlaying = true;
+                        audioSource.PlayOneShot(impactSound);
+                        StartCoroutine(SoundPlaying(impactSound.length));
+                    }
+                }
+
                 health.TakeDamage(damage);
+
                 if (destroyOnCollission)
                 {
                     Destroy(this.gameObject);
@@ -81,7 +106,19 @@ public class Hazard : RaycastController
             if (hit)
             {
                 Health health = hit.transform.GetComponent<Health>();
+
+                if (audioSource != null && impactSound != null)
+                {
+                    if (!soundIsPlaying && health.currentHealth > 0)
+                    {
+                        soundIsPlaying = true;
+                        audioSource.PlayOneShot(impactSound);
+                        StartCoroutine(SoundPlaying(impactSound.length));
+                    }
+                }
+
                 health.TakeDamage(damage);
+
                 if (destroyOnCollission)
                 {
                     Destroy(this.gameObject);
@@ -104,7 +141,19 @@ public class Hazard : RaycastController
             if (hit)
             {
                 Health health = hit.transform.GetComponent<Health>();
+
+                if (audioSource != null && impactSound != null)
+                {
+                    if (!soundIsPlaying && health.currentHealth > 0)
+                    {
+                        soundIsPlaying = true;
+                        audioSource.PlayOneShot(impactSound);
+                        StartCoroutine(SoundPlaying(impactSound.length));
+                    }
+                }
+
                 health.TakeDamage(damage);
+
                 if (destroyOnCollission)
                 {
                     Destroy(this.gameObject);
@@ -127,13 +176,31 @@ public class Hazard : RaycastController
             if (hit)
             {
                 Health health = hit.transform.GetComponent<Health>();
+
+                if (audioSource != null && impactSound != null)
+                {
+                    if (!soundIsPlaying && health.currentHealth > 0)
+                    {
+                        soundIsPlaying = true;
+                        audioSource.PlayOneShot(impactSound);
+                        StartCoroutine(SoundPlaying(impactSound.length));
+                    }
+                }
+
                 health.TakeDamage(damage);
+
                 if (destroyOnCollission)
                 {
                     Destroy(this.gameObject);
                 }
             }
         }
+    }
+
+    IEnumerator SoundPlaying(float time)
+    {
+        yield return new WaitForSeconds(time);
+        soundIsPlaying = false;
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)

@@ -12,7 +12,7 @@ public class HazardSpawner : MonoBehaviour
     int currentDropHazardPoint;
 
     [SerializeField] float minTimeBetweenFalls = 0.5f;
-    [SerializeField] float maxTimeBetweenFalls = 2;
+    [SerializeField] float maxTimeBetweenFalls = 1.5f;
 
     float timeBetweenFalls;
 
