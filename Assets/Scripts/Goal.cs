@@ -5,21 +5,34 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     [SerializeField] GameObject goalUI;
+    [SerializeField] GameObject textBox;
+
     [SerializeField] bool goalReached;
     GameManager gameManager;
+
+    bool clearTextVisible;
 
     void Start()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
-    //void Update()
-    //{
-    //    if (goalReached)
-    //    {
-    //        goalUI.SetActive(true);
-    //    }
-    //}
+    void Update()
+    {
+        //if (goalReached)
+        //{
+        //    goalUI.SetActive(true);
+        //}
+
+        if (clearTextVisible)
+        {
+            textBox.SetActive(true);
+        }
+        else
+        {
+            textBox.SetActive(false);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,4 +46,18 @@ public class Goal : MonoBehaviour
 
 
     }
+
+
+    public void ClearText()
+    {
+        if (clearTextVisible)
+        {
+            clearTextVisible = false;
+        }
+        else
+        {
+            clearTextVisible = true;
+        }
+    }
+
 }
