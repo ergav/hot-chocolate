@@ -42,6 +42,7 @@ public class HazardSpawner : MonoBehaviour
                 StartCoroutine(FallDelay());
                 spawnReady = false;
                 GameObject spawnedObject = Instantiate(hazardToSpawn, globalSpawnPoint[currentDropHazardPoint], transform.rotation);
+                spawnedObject.GetComponent<FallingObject>().TriggerFall();
             }
         }
     }

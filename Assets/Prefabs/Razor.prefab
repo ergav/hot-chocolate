@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   falling: 1
-  fallSpeed: 20
+  fallSpeed: 12
   despawnTime: 5
 --- !u!50 &8273951900870054989
 Rigidbody2D:
