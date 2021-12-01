@@ -6,7 +6,7 @@ using Cinemachine;
 public class CinemachineCameraOffsetManager : MonoBehaviour
 {
     Vector3 defaultOffset;
-    [HideInInspector]public Vector3 offsetAmount;
+    [HideInInspector]public Vector3 targetOffset;
     Vector3 currentOffset;
     //Vector3 smoothedPos;
     CinemachineVirtualCamera vCam;
@@ -14,8 +14,9 @@ public class CinemachineCameraOffsetManager : MonoBehaviour
 
     [HideInInspector] public bool inOffsetZone;
 
-    float smoothing;
+    //float smoothing;
 
+    [SerializeField] float smoothspeed = 5;
     //[SerializeField] float smoothDuration = 1;
     //float smoothTimer;
 
@@ -32,27 +33,27 @@ public class CinemachineCameraOffsetManager : MonoBehaviour
     {
         //smoothing = smoothTimer / smoothDuration;
 
-        transposer.m_TrackedObjectOffset = currentOffset;
+        currentOffset = transposer.m_TrackedObjectOffset;
 
-        if (inOffsetZone)
+        transposer.m_TrackedObjectOffset = Vector3.MoveTowards(currentOffset, targetOffset, smoothspeed * Time.deltaTime);
+
+        if (!inOffsetZone)
         {
-            CameraOffset(offsetAmount);
-        }
-        else
-        {
-            DefaultCameraOffset(defaultOffset);
+            targetOffset = defaultOffset;
         }
     }
 
-    public void CameraOffset(Vector3 offset)
-    {
-        currentOffset = offset;
+    //public void CameraOffset(Vector3 offset)
+    //{
+    //    //transposer.m_TrackedObjectOffset = offset;
+    //    transposer.m_TrackedObjectOffset = Vector3.MoveTowards(currentOffset, offset, smoothspeed * Time.deltaTime);
+    //}
 
-    }
+    //public void DefaultCameraOffset(Vector3 offset)
+    //{
+    //    //transposer.m_TrackedObjectOffset = offset;
+    //    transposer.m_TrackedObjectOffset = Vector3.MoveTowards(currentOffset, offset, smoothspeed * Time.deltaTime);
 
-    public void DefaultCameraOffset(Vector3 offset)
-    {
-        currentOffset = offset;
 
-    }
+    //}
 }

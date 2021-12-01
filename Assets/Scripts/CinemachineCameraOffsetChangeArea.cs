@@ -42,8 +42,8 @@ public class CinemachineCameraOffsetChangeArea : MonoBehaviour
         if (collision.tag == "Player")
         {
             playerInside = true;
-            offsetmanager.offsetAmount = cameraOffset;
             offsetmanager.inOffsetZone = true;
+            offsetmanager.targetOffset = cameraOffset;
         }
 
     }

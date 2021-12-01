@@ -5690,7 +5690,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dc8ca198f5c7a614cb9dc4d890f54fd4, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -13431,8 +13431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71c811d9da483749bee44e303a02be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetAmount: {x: 0, y: 0, z: 0}
+  targetOffset: {x: 0, y: 0, z: 0}
   inOffsetZone: 0
+  smoothspeed: 5
 --- !u!1 &1774400914
 GameObject:
   m_ObjectHideFlags: 0
@@ -15195,7 +15196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2024e78fbe43ad4899eb5765d14af34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraOffset: {x: 0, y: 2, z: 0}
+  cameraOffset: {x: 0, y: 3, z: 0}
   playerInside: 0
 --- !u!61 &2044225600
 BoxCollider2D:
