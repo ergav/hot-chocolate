@@ -12,9 +12,22 @@ public class Goal : MonoBehaviour
 
     bool clearTextVisible;
 
+    Animator anim;
+
+    [SerializeField] float endDelay = 0.5f;
+
     void Start()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
+
+        if (anim == null)
+        {
+            anim = GetComponent<Animator>();
+            if (anim == null)
+            {
+                anim = GetComponentInChildren<Animator>();
+            }
+        }
     }
 
     void Update()
@@ -38,15 +51,22 @@ public class Goal : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            anim.SetTrigger("StartAnimation");
+            //goalUI.SetActive(true);
+            goalReached = true;
             gameManager.GoalReached();
             gameManager.goalReached = true;
-            goalUI.SetActive(true);
-            goalReached = true;
+            StartCoroutine(DelayEnd());
         }
 
 
     }
 
+    IEnumerator DelayEnd()
+    {
+        yield return new WaitForSecondsRealtime(endDelay);
+        goalUI.SetActive(true);
+    }
 
     public void ClearText()
     {

@@ -69,6 +69,22 @@ public class Player : MonoBehaviour
             {
                 velocity.x = -wallDirX * wallJumpClimb.x;
                 velocity.y = wallJumpClimb.y;
+
+                if (!playerAnimations.facingRight)
+                {
+                    if (wallDirX < 0)
+                    {
+                        playerAnimations.facingRight = true;
+                    }
+                }
+                else
+                {
+                    if (wallDirX > 0)
+                    {
+                        playerAnimations.facingRight = false;
+                    }
+                }
+
                 if (playerSound != null)
                 {
                     playerSound.Jump();
