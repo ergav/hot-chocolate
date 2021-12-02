@@ -16,9 +16,21 @@ public class Goal : MonoBehaviour
 
     [SerializeField] float endDelay = 0.5f;
 
+    [SerializeField]AudioSource audioSource;
+    [SerializeField] AudioClip winSound;
+
     void Start()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+            }
+        }
 
         if (anim == null)
         {
@@ -56,6 +68,7 @@ public class Goal : MonoBehaviour
             goalReached = true;
             gameManager.GoalReached();
             gameManager.goalReached = true;
+            audioSource.PlayOneShot(winSound);
             StartCoroutine(DelayEnd());
         }
 
