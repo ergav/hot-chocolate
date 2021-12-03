@@ -16,6 +16,8 @@ public class Hazard : RaycastController
     [SerializeField] AudioClip impactSound;
     bool soundIsPlaying;
 
+    [SerializeField] bool deathBarrier;
+
     public override void Start()
     {
         base.Start();
@@ -81,6 +83,10 @@ public class Hazard : RaycastController
                     }
                 }
 
+                if (deathBarrier)
+                {
+                    health.deathVariant = 1;
+                }
                 health.TakeDamage(damage);
 
                 if (destroyOnCollission)

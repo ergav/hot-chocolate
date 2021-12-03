@@ -23,6 +23,8 @@ public class Health : MonoBehaviour
     PlayerSound playerSound;
     PlayerAnimations playerAnimations;
 
+    [HideInInspector] public int deathVariant;
+
     void Start()
     {
         player = GetComponent<Player>();
@@ -76,7 +78,15 @@ public class Health : MonoBehaviour
 
             if (playerSound != null)
             {
-                playerSound.Death();
+                if (deathVariant == 1)
+                {
+                    playerSound.FallDeath();
+
+                }
+                else
+                {
+                    playerSound.Death();
+                }
             }
 
             if (playerAnimations != null)

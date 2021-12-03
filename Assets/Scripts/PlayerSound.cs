@@ -6,7 +6,7 @@ public class PlayerSound : MonoBehaviour
 {
     public AudioSource audioSource;
 
-    public AudioClip[] hurtSounds, deathSounds, jumpSounds;
+    public AudioClip[] hurtSounds, deathSounds, jumpSounds, fallounds;
 
     int rng;
 
@@ -34,5 +34,11 @@ public class PlayerSound : MonoBehaviour
     {
         rng = Random.Range(0, deathSounds.Length);
         audioSource.PlayOneShot(deathSounds[rng]);
+    }
+
+    public void FallDeath()
+    {
+        rng = Random.Range(0, fallounds.Length);
+        audioSource.PlayOneShot(fallounds[rng]);
     }
 }

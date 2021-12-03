@@ -193,6 +193,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 833cd9b7a10935c438a6e4561689877d, type: 3}
   - {fileID: 21300000, guid: 8025e96260b9c134b90986238b4d916a, type: 3}
   - {fileID: 21300000, guid: 254e1f2fe0c47cd45a024d518b854b05, type: 3}
+  deathVariant: 0
 --- !u!114 &7227910690477836314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,11 +302,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   hurtSounds:
-  - {fileID: 8300000, guid: e14afb7bf84731f45b8c956732bd97b0, type: 3}
+  - {fileID: 8300000, guid: 3079eeac45b81d745b8a404c463f3bab, type: 3}
+  - {fileID: 8300000, guid: 5466089746ae4234c928da30469c417c, type: 3}
+  - {fileID: 8300000, guid: 9e3dce7c7da61c5429ad04a62bade6a1, type: 3}
+  - {fileID: 8300000, guid: fe3088848e12e444eb1230c19ef1c535, type: 3}
+  - {fileID: 8300000, guid: bdc307c18ffa04c4d80b5eef82163bcc, type: 3}
+  - {fileID: 8300000, guid: a4244714c7a87c14abf1a40178532e6d, type: 3}
+  - {fileID: 8300000, guid: 0243e810e24097d4db41b0e94fe493ae, type: 3}
+  - {fileID: 8300000, guid: 70f49c475a7716e4fad400c6816e469d, type: 3}
   deathSounds:
-  - {fileID: 8300000, guid: 8c64e459368a84b4aac9e5a4a7aa27a8, type: 3}
+  - {fileID: 8300000, guid: e14afb7bf84731f45b8c956732bd97b0, type: 3}
   jumpSounds:
   - {fileID: 8300000, guid: 31947587d0c9c354fadfbbbadb4a93e3, type: 3}
+  fallounds:
+  - {fileID: 8300000, guid: 8c64e459368a84b4aac9e5a4a7aa27a8, type: 3}
 --- !u!82 &6796107280288486311
 AudioSource:
   m_ObjectHideFlags: 0
