@@ -8,6 +8,8 @@ public class PlayerAnimations : MonoBehaviour
 
     Player player;
 
+    PlayerInput playerInput;
+
     Health health;
 
     public RuntimeAnimatorController player1Controller, player2Controller;
@@ -28,6 +30,8 @@ public class PlayerAnimations : MonoBehaviour
             }
 
             player = GetComponent<Player>();
+
+            playerInput = GetComponent<PlayerInput>();
 
             health = GetComponent<Health>();
 

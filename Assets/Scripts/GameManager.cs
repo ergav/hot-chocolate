@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public bool paused;
     public bool goalReached;
 
+    PlayerInput pInput;
+    PlayerAnimations pAnim;
+
     void Start()
     {
         if (player == null)
@@ -37,6 +40,9 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+        pInput = GameObject.FindObjectOfType<PlayerInput>();
+        pAnim = GameObject.FindObjectOfType<PlayerAnimations>();
     }
 
     void Update()
@@ -44,10 +50,16 @@ public class GameManager : MonoBehaviour
         if (paused || goalReached)
         {
             Time.timeScale = 0;
+            pInput.enabled = false;
+            pAnim.enabled = false;
+
         }
         else
         {
             Time.timeScale = 1;
+            pInput.enabled = true;
+            pAnim.enabled = true;
+
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
