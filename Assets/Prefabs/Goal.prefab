@@ -178,4 +178,4 @@ MonoBehaviour:
   goalReached: 0
   endDelay: 0.25
   audioSource: {fileID: 0}
-  winSound: {fileID: 8300000, guid: c5ffac55a3acf144799c7bf2db659473, type: 3}
+  winSound: {fileID: 8300000, guid: 5154203bede5dab46850587439145c39, type: 3}
