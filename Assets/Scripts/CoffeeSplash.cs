@@ -46,7 +46,6 @@ public class CoffeeSplash : MonoBehaviour
             audioSource.PlayOneShot(splashSounds[rng]);
             rng = Random.Range(0, splashSounds.Length);
             StartCoroutine(DespawnSplash());
-            Debug.Log("Splash!");
         }
     }
 
