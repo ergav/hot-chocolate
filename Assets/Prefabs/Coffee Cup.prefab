@@ -102,6 +102,77 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &4426066357582840044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8243171186925256008}
+  - component: {fileID: 7638302299431473652}
+  - component: {fileID: 1375675329581260347}
+  m_Layer: 0
+  m_Name: JumpFixer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8243171186925256008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426066357582840044}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.6497397, y: 2.6195717, z: 0}
+  m_LocalScale: {x: 1.6372323, y: 1.6372323, z: 1.6372323}
+  m_Children: []
+  m_Father: {fileID: 5827336031540755701}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7638302299431473652
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426066357582840044}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.9303045, y: -0.30753076}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5565357, y: 1.166033}
+  m_EdgeRadius: 0
+--- !u!114 &1375675329581260347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426066357582840044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027e73dab6b3b47439a4de340f34f1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &5827336031540755703
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +205,7 @@ Transform:
   - {fileID: 5827336032608572846}
   - {fileID: 5827336032456271878}
   - {fileID: 5012099122466786466}
+  - {fileID: 8243171186925256008}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -192,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5827336032456271878}
   - component: {fileID: 5827336032456271879}
+  - component: {fileID: 571327590923351733}
   - component: {fileID: 5827336032456271876}
   m_Layer: 7
   m_Name: Death
@@ -224,7 +297,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.1117122, y: -0.7909888}
@@ -240,6 +313,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.045864, y: 2.5819762}
   m_EdgeRadius: 0
+--- !u!114 &571327590923351733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5827336032456271897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3879a5b48510e624a8246af5bef15553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashEffect: {fileID: 7864929115245242275, guid: 7a11d84d08db8bf42b44d85e03308502, type: 3}
 --- !u!114 &5827336032456271876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +355,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   impactSound: {fileID: 0}
   deathBarrier: 0
+  impactEffect: {fileID: 7864929115245242275, guid: 7a11d84d08db8bf42b44d85e03308502, type: 3}
 --- !u!1 &5827336032608572833
 GameObject:
   m_ObjectHideFlags: 0

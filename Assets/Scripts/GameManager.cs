@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     PlayerInput pInput;
     PlayerAnimations pAnim;
+    Health pHealth;
+
 
     void Start()
     {
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
 
         pInput = GameObject.FindObjectOfType<PlayerInput>();
         pAnim = GameObject.FindObjectOfType<PlayerAnimations>();
+        pHealth = player.GetComponent<Health>();
     }
 
     void Update()
@@ -57,8 +60,12 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = 1;
-            pInput.enabled = true;
-            pAnim.enabled = true;
+            if (!pHealth.dead)
+            {
+                pInput.enabled = true;
+                pAnim.enabled = true;
+            }
+
 
         }
 
@@ -104,6 +111,11 @@ public class GameManager : MonoBehaviour
     public void GoalReached()
     {
         goalReached = true;
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Respawn()
