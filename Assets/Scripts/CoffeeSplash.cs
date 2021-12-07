@@ -8,11 +8,31 @@ public class CoffeeSplash : MonoBehaviour
 
     GameObject splash;
 
+    Vector3 splashPos = new Vector3(0, 2, 0);
+
+    [SerializeField]AudioSource audioSource;
+
+    [SerializeField] AudioClip[] splashSounds;
+
+    int rng;
+
+    private void Start()
+    {
+        if (audioSource == null)
+        {
+            audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        }
+
+        rng = Random.Range(0, splashSounds.Length);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Player")
         {
-            splash = Instantiate(splashEffect, collision.transform.position, transform.rotation);
+            splash = Instantiate(splashEffect, collision.transform.position + splashPos, transform.rotation);
+            audioSource.PlayOneShot(splashSounds[rng]);
+            rng = Random.Range(0, splashSounds.Length);
             StartCoroutine(DespawnSplash());
             Debug.Log("Splash!");
         }
@@ -22,7 +42,9 @@ public class CoffeeSplash : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            splash = Instantiate(splashEffect, collision.transform.position, transform.rotation);
+            splash = Instantiate(splashEffect, collision.transform.position + splashPos, transform.rotation);
+            audioSource.PlayOneShot(splashSounds[rng]);
+            rng = Random.Range(0, splashSounds.Length);
             StartCoroutine(DespawnSplash());
             Debug.Log("Splash!");
         }

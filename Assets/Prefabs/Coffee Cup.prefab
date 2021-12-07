@@ -326,6 +326,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashEffect: {fileID: 7864929115245242275, guid: 7a11d84d08db8bf42b44d85e03308502, type: 3}
+  audioSource: {fileID: 0}
+  splashSounds:
+  - {fileID: 8300000, guid: 92bae6608f23c244a84df80c5e13d34c, type: 3}
+  - {fileID: 8300000, guid: 22bed8f6882afb84d8a7a79c534db276, type: 3}
+  - {fileID: 8300000, guid: fd84a159696cc444b9b1d3f71baa313a, type: 3}
+  - {fileID: 8300000, guid: 2ee07abf620525c4e898f511459249c3, type: 3}
 --- !u!114 &5827336032456271876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +361,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   impactSound: {fileID: 0}
   deathBarrier: 0
-  impactEffect: {fileID: 7864929115245242275, guid: 7a11d84d08db8bf42b44d85e03308502, type: 3}
 --- !u!1 &5827336032608572833
 GameObject:
   m_ObjectHideFlags: 0

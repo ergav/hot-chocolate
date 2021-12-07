@@ -14757,10 +14757,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 2564309551992673988, guid: 49d1484caedc20749ac288f2952707aa, type: 3}
-      propertyPath: collectSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 43841d045427d404e906a5553d9846a4, type: 3}
     - target: {fileID: 2944669569083133048, guid: 49d1484caedc20749ac288f2952707aa, type: 3}
       propertyPath: m_RootOrder
       value: 2
