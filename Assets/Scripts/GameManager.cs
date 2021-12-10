@@ -115,6 +115,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        goalReached = false;
+        paused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
