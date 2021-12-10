@@ -30,18 +30,55 @@ public class GameManager : MonoBehaviour
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+            {
+                Debug.Log("Player not found");
+
+            }
         }
 
         selectPlayer = GameObject.Find("PlayerSelect").GetComponent<SelectPlayer>();
 
         if (selectPlayer != null)
         {
+            Debug.Log("Selectplayer found");
             if (selectPlayer.player2Selected)
             {
-                player.GetComponent<PlayerAnimations>().anim.runtimeAnimatorController = player.GetComponent<PlayerAnimations>().player2Controller;
+                Debug.Log("Player 2 was selected.");
+                PlayerAnimations playerAnimations = player.GetComponent<PlayerAnimations>();
+                if (playerAnimations == null)
+                {
+                    Debug.Log("Playeranimations not found");
+                }
+                if (playerAnimations.anim == null)
+                {
+                    Debug.Log("anim not found");
+
+                }
+                if (playerAnimations.player2Controller == null)
+                {
+                    Debug.Log("player2controller not found");
+
+                }
+                if (playerAnimations.anim.runtimeAnimatorController == null)
+                {
+                    Debug.Log("anim.runtimeanimationcontroller not found");
+
+                }
+                playerAnimations.anim.runtimeAnimatorController = playerAnimations.player2Controller;
             }
+            else
+            {
+                Debug.Log("Player 1 was selected.");
+
+            }
+        }
+        else
+        {
+            Debug.Log("Selectplayer NOT found");
 
         }
+
 
         pInput = GameObject.FindObjectOfType<PlayerInput>();
         pAnim = GameObject.FindObjectOfType<PlayerAnimations>();

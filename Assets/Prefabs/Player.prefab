@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62807da93f052f94cbf75649561a2562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 7227910690076842705}
   player1Controller: {fileID: 9100000, guid: 2ff2b43dc0d06e24eb6da8905b4c3e21, type: 2}
   player2Controller: {fileID: 9100000, guid: 970467d70198c1749aaa35d07028ac14, type: 2}
   facingRight: 1
