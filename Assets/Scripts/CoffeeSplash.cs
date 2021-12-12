@@ -31,8 +31,11 @@ public class CoffeeSplash : MonoBehaviour
         if (collision.collider.tag == "Player")
         {
             splash = Instantiate(splashEffect, collision.transform.position + splashPos, transform.rotation);
-            audioSource.PlayOneShot(splashSounds[rng]);
-            rng = Random.Range(0, splashSounds.Length);
+            if (splashSounds.Length > 0)
+            {
+                audioSource.PlayOneShot(splashSounds[rng]);
+                rng = Random.Range(0, splashSounds.Length);
+            }
             StartCoroutine(DespawnSplash());
             Debug.Log("Splash!");
         }
@@ -43,8 +46,8 @@ public class CoffeeSplash : MonoBehaviour
         if (collision.tag == "Player")
         {
             splash = Instantiate(splashEffect, collision.transform.position + splashPos, transform.rotation);
-            audioSource.PlayOneShot(splashSounds[rng]);
-            rng = Random.Range(0, splashSounds.Length);
+
+
             StartCoroutine(DespawnSplash());
         }
     }

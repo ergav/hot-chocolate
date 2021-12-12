@@ -21,6 +21,14 @@ public class PlayerAnimations : MonoBehaviour
 
     void Start()
     {
+        player = GetComponent<Player>();
+
+        playerInput = GetComponent<PlayerInput>();
+
+        health = GetComponent<Health>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         if (anim == null)
         {
             anim = GetComponent<Animator>();
@@ -29,13 +37,7 @@ public class PlayerAnimations : MonoBehaviour
                 anim = GetComponentInChildren<Animator>();
             }
 
-            player = GetComponent<Player>();
 
-            playerInput = GetComponent<PlayerInput>();
-
-            health = GetComponent<Health>();
-
-            spriteRenderer = GetComponent<SpriteRenderer>();
 
             if (spriteRenderer == null)
             {

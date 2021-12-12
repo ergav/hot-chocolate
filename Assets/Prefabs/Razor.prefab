@@ -62,7 +62,8 @@ MonoBehaviour:
   hurtLeft: 1
   hurtRight: 1
   audioSource: {fileID: 0}
-  impactSound: {fileID: 8300000, guid: dba2d204b68818e449150646d011433b, type: 3}
+  impactSound: {fileID: 0}
+  deathBarrier: 0
 --- !u!114 &8273951900870054978
 MonoBehaviour:
   m_ObjectHideFlags: 0

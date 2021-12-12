@@ -6240,7 +6240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717917358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.30287, y: 0.14855045, z: -11.7}
+  m_LocalPosition: {x: -13.193035, y: 0.1486401, z: -11.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13544,6 +13544,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 571327590923351733, guid: f2084d3b0c679974d89d37c65d469993, type: 3}
+      propertyPath: splashSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5827336031540755701, guid: f2084d3b0c679974d89d37c65d469993, type: 3}
       propertyPath: m_RootOrder
       value: 5
