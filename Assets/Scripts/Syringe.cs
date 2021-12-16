@@ -117,7 +117,11 @@ public class Syringe : MonoBehaviour
             if (fall)
             {
                 nextMoveTime = Time.time + waitTime;
-                audioSource.PlayOneShot(stabSound);
+                if (stabSound != null)
+                {
+                    audioSource.PlayOneShot(stabSound);
+
+                }
             }
             else
             {

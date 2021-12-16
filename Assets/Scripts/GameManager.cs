@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
 
         if (selectPlayer != null)
         {
-            Debug.Log("Selectplayer found");
+            //Debug.Log("Selectplayer found");
             if (selectPlayer.player2Selected)
             {
-                Debug.Log("Player 2 was selected.");
+                //Debug.Log("Player 2 was selected.");
                 PlayerAnimations playerAnimations = player.GetComponent<PlayerAnimations>();
                 if (playerAnimations == null)
                 {
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Player 1 was selected.");
+                //Debug.Log("Player 1 was selected.");
 
             }
         }

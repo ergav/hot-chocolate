@@ -28,6 +28,11 @@ public class PlayerAnimations : MonoBehaviour
         health = GetComponent<Health>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        }
 
         if (anim == null)
         {
@@ -37,13 +42,6 @@ public class PlayerAnimations : MonoBehaviour
                 anim = GetComponentInChildren<Animator>();
             }
 
-
-
-            if (spriteRenderer == null)
-            {
-                spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-            }
         }
     }
 
