@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             pInput.enabled = false;
             pAnim.enabled = false;
-
+            Cursor.visible = true;
         }
         else
         {
@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
                 pInput.enabled = true;
                 pAnim.enabled = true;
             }
+            Cursor.visible = false;
 
 
         }
