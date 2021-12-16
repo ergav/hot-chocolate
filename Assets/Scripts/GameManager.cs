@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     PlayerAnimations pAnim;
     Health pHealth;
 
+    bool exiting;
 
     void Start()
     {
@@ -92,7 +93,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             pInput.enabled = false;
             pAnim.enabled = false;
-            Cursor.visible = true;
         }
         else
         {
@@ -102,9 +102,18 @@ public class GameManager : MonoBehaviour
                 pInput.enabled = true;
                 pAnim.enabled = true;
             }
+
+
+        }
+
+
+        if (paused || goalReached || pHealth.dead || exiting)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
             Cursor.visible = false;
-
-
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
@@ -178,6 +187,7 @@ public class GameManager : MonoBehaviour
 
     public void ExitToMenu()
     {
+        exiting = true;
         Destroy(selectPlayer.gameObject);
         paused = false;
         SceneManager.LoadScene(0);
