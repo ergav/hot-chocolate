@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     bool exiting;
 
+    [SerializeField]AudioSource musicAudioSource;
+
     void Start()
     {
         if (player == null)
@@ -84,6 +86,11 @@ public class GameManager : MonoBehaviour
         pInput = GameObject.FindObjectOfType<PlayerInput>();
         pAnim = GameObject.FindObjectOfType<PlayerAnimations>();
         pHealth = player.GetComponent<Health>();
+
+        if (musicAudioSource == null)
+        {
+            musicAudioSource = GameObject.Find("MusicPlayer").GetComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -93,6 +100,14 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             pInput.enabled = false;
             pAnim.enabled = false;
+            if (musicAudioSource != null)
+            {
+                if (musicAudioSource.isPlaying)
+                {
+                    musicAudioSource.Pause();
+                }
+            }
+
         }
         else
         {
@@ -101,6 +116,13 @@ public class GameManager : MonoBehaviour
             {
                 pInput.enabled = true;
                 pAnim.enabled = true;
+            }
+            if (musicAudioSource != null)
+            {
+                if (!musicAudioSource.isPlaying)
+                {
+                    musicAudioSource.Play();
+                }
             }
 
 
