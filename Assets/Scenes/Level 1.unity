@@ -5731,8 +5731,8 @@ PolygonCollider2D:
       - {x: 6.415, y: 4.1}
       - {x: 6.4049997, y: 4.11}
       - {x: 6.415, y: 4.3399997}
-      - {x: 6.3900347, y: 6.536041}
-      - {x: -6.1211996, y: 6.523214}
+      - {x: 6.4034543, y: 6.5348206}
+      - {x: -6.138818, y: 6.536778}
       - {x: -6.145, y: 3.58}
       - {x: -6.1349998, y: 3.52}
       - {x: -6.125, y: 3.34}
@@ -5823,7 +5823,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d59cdc9bc86cd984ebdaec1b989fd2e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8737dddac50fe19439c9ee2030669a33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9001,7 +9001,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
