@@ -113,7 +113,7 @@ MonoBehaviour:
   easeAmount: 0
   fall: 0
   moving: 0
-  stabSound: {fileID: 0}
+  stabSound: {fileID: 8300000, guid: 790cdc3b490f6a64098146d04f8f0ced, type: 3}
 --- !u!82 &8666090375965659293
 AudioSource:
   m_ObjectHideFlags: 0
